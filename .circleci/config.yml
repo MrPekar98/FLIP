@@ -1,0 +1,42 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/code
+    docker:
+      - image: circleci/openjdk:11.0.2-jdk-node-browsers-legacy
+        environment:
+          CLASSPATH: ".:/home/circleci/code/antlr-4.7.1-complete.jar:$CLASSPATH"
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "build.gradle" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: gradle dependencies
+      - run:
+          command: |
+            sudo apt-get update
+            sudo apt-get install libgdbm-dev libncurses5-dev automake libtool
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: v1-dependencies-{{ checksum "build.gradle" }}
+
+      # Setup ANTLR
+      - run:
+          name: Download ANTLR
+          command: if [ ! -f antlr-4.7.1-complete.jar ]; then curl -O http://www.antlr.org/download/antlr-4.7.1-complete.jar; fi
+
+      # "Run Tests"-Block
+      - run:
+          name: Run Gradle Tests
+          command: gradle test
+
+      - run:
+          name: Compile ANTLR4
+          working_directory: ~/code/cfg
+          command: echo Todo
