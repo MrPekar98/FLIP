@@ -1,0 +1,735 @@
+options {
+  /* JavaCC */
+  CACHE_TOKENS = true;              // Cache multiple tokens for performance.
+  CHOICE_AMBIGUITY_CHECK = 5;       // Lookahead tokens to check for ambiguity. Rules of form "A | B | ...".
+  FORCE_LA_CHECK = true;            // Force ambiguity check for all lookahead values.
+  LOOKAHEAD = 1;                    // Set lookahead to a, as in LL(a).
+  OTHER_AMBIGUITY_CHECK = 10;       // Lookahead tokens to check for ambiguity. Rules of form "(A)*", "(A)+", and "(A)?".
+  OUTPUT_DIRECTORY = "generated";   // Output directory for generated files (relative).
+ // DEBUG_PARSER = true;
+
+  /* JJTree */
+  MULTI = true;                 // Generate multi-class tree (with accept method if VISITOR is true).
+  NODE_PREFIX = "";          // Specify prefix for above generated classes.
+//  TRACK_TOKENS = false;       // If true, insert jjtGetFirstToken(), jjtSetFirstToken(), getLastToken(), and jjtSetLastToken() methods in SimpleNode.
+  VISITOR = true;               // Insert jjtAccept.
+
+  /* JavaCC and JJTree */
+  JDK_VERSION = "11";
+  STATIC = false;
+}
+/*
+    Class definitions. Included in generated parser.
+*/
+PARSER_BEGIN(FlipParser)
+package javacc.generated;
+import java.io.File;
+import java.io.Reader;
+import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import javacc.util.TreePrinter;import javacc.visitors.FixExpressionsVisitor;import javacc.visitors.PrintingVisitor;import javacc.visitors.TypeCheckerVisitor;import javacc.visitors.codegeneration.CodeGenerationVisitor;import org.apache.log4j.Logger;
+
+public class FlipParser {
+  private static final Logger logger = Logger.getLogger(FlipParser.class);
+  public static void main(String[] args) {
+    long startTime = System.nanoTime();
+    try {
+      String filename = System.getProperty("user.dir") + File.separator + "src" + File.separator + "javacc" + File.separator + "fisk.flip";
+      Reader reader = new InputStreamReader(new FileInputStream(filename), StandardCharsets.US_ASCII);
+      FlipParser p = new FlipParser(reader);
+
+      try {
+        SimpleNode node = p.prog();
+        node.jjtAccept(new FixExpressionsVisitor(), null);
+        node.jjtAccept(new TypeCheckerVisitor(), null);
+        node.jjtAccept(new CodeGenerationVisitor(), null);
+
+        float endTimeSeconds = ((float)(System.nanoTime() - startTime)) / 1000000000F;
+        System.out.format("Compiling this FLIP program took %.1f seconds.", endTimeSeconds);
+        System.out.println("");
+//        TreePrinter.printTree(node, "");
+      } catch (ParseException e) {
+        e.printStackTrace();
+        logger.error("Failed to parse because:", e);
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+      logger.error("An IOException occurred while trying to parse the file", e);
+    }
+  }
+}
+PARSER_END(FlipParser)
+/*
+    ==============================================================================================
+    Token (and skip) definitions.
+    ==============================================================================================
+*/
+SKIP : {
+  " "                                                               // Spaces.
+  |  "\t"                                                           // Tabs.
+  |  "\n"                                                           // Line feed.
+  |  "\r"                                                           // Carriage return.
+  |  <"//" (~["\n","\r"])* ("\n" | "\r" | "\r\n")>                  // Line comments.
+  |  <"/*" (~["*"])* "*" ("*" | ~["*","/"] (~["*"])* "*")* "/">     // Block comments.
+}
+
+TOKEN : {
+  <SETUP: "Setup" > |
+  <STAGE: "Stage" > |
+  <TO: "to" > |
+  <CONDITION: "Condition" > |
+  <ACTION: "Action" > |
+  <FUNCTION: "Function" > |
+  <OPTION: "Option" > |
+
+  // Punctuation.
+  <SEMICOLON: ";" > |
+  <COMMA: "," > |
+  <LPAREN : "(" > |
+  <RPAREN : ")" > |
+  <LBRACKET: "[" > |
+  <RBRACKET: "]" > |
+  <LBRACE: "{" > |
+  <RBRACE: "}" > |
+  <COLON: ":" > |
+  <RANGE: ".." > |
+
+  // Types.
+  <NUMBER: "0" | ["1"-"9"] (["0"-"9"])* > |
+  <TEXT: "\""  ("\\" ("\\" | "n" | "r" | "\"") | ~["\\","\n","\r","\""] )* "\"" > |
+  <PLAYER_TYPE: "Player" > |
+  <NUMBER_TYPE: "Number" > |
+  <CARD_TYPE: "Card" > |
+  <SUIT_TYPE: "Suit" > |
+  <RANK_TYPE: "Rank" > |
+  <SEQUENCE_TYPE: "Sequence" > |
+  <PILE_TYPE: "Pile" > |
+  <BOOLEAN_TYPE : "Boolean" > |
+  <TEXT_TYPE : "Text" > |
+  <TRUE: "true" > |
+  <FALSE: "false" > |
+
+  <PLAYER_COUNT: "PlayerCount"> |
+  <PLAYER_DEF: "DefinePlayer"> |
+  <PILE_DEF: "DefinePiles"> |
+
+  // Card Literals
+  <OF: "of" > |
+  <SPADES:   "spades" >   |
+  <CLUBS:    "clubs" >    |
+  <HEARTS:   "hearts" >   |
+  <DIAMONDS: "diamonds" > |
+  <ACE:   "ace" >   |
+  <TWO:   "two" >   |
+  <THREE: "three" > |
+  <FOUR:  "four" >  |
+  <FIVE:  "five" >  |
+  <SIX:   "six" >   |
+  <SEVEN: "seven" > |
+  <EIGHT: "eight" > |
+  <NINE:  "nine" >  |
+  <TEN:   "ten" >   |
+  <JACK:  "jack" >  |
+  <QUEEN: "queen" > |
+  <KING:  "king" >  |
+
+  // Operators.
+  <AND: "and" > |
+  <OR: "or" > |
+  <XOR: "xor" > |
+  <ASSIGN: ":=" > |
+  <EQUALS: "=" > |
+  <LESS_THAN: "<" > |
+  <LESS_THAN_EQUAL: "<=" > |
+  <GREATER_THAN: ">" > |
+  <GREATER_THAN_EQUAL: ">=" > |
+  <NOT: "not" > |
+  <CONTAINS: "contains" > |
+  <PLUS: "+" > |
+  <MINUS: "-" > |
+  <DIVIDE: "/" > |
+  <MULTIPLY: "*"> |
+  <MODULO: "mod" > |
+  <ARROW: "->" > |
+
+  // Functions.
+  <PLAY_ACTION: "play" > |
+  <MOVE_ACTION: "move" > |
+  <DEAL_ACTION: "deal" > |
+  <PLAYER_CALL: "player" > |
+  <PILE_CALL: "pile" > |
+
+  //Statements.
+  <IF: "if" > |
+  <ELSE: "else" > |
+  <FOREACH: "for" > |
+  <IN: "in" > |
+  <WHILE: "while" > |
+  <STATE_DONE: "done" > |
+  <STATE_NEXT: "next" > |
+  <STATE_OUT: "out" > |
+  <STATE_WIN: "win" > |
+  <STATE_SKIP: "skip" > |
+  <RETURN: "return" > |
+
+  // Modifiers.
+  <MANDATORY: "mandatory" > |
+
+  <CURRENT_PLAYER: "CurrentPlayer" > |
+
+  // ID has to be declared last (Matches longest first, then first declared).
+  <ID: ["a"-"z", "A"-"Z", "_"](["a"-"z", "A"-"Z", "_", "0"-"9"])* >
+}
+
+/*
+    ==============================================================================================
+    Parser rules and AST generation definitions.
+    ==============================================================================================
+*/
+
+// First non-terminal is prog.
+SimpleNode prog() #Prog:
+{}
+{
+  setup() (stage() | function())* <EOF>
+  {
+    return jjtThis;
+  }
+}
+
+void setup() #Setup:
+{}
+{
+  <SETUP> setupBlock()
+}
+
+void stage() #Stage:
+{}
+{
+  <STAGE> id() <TO> id() block()  block()
+}
+
+void orExpr() #OrExpr:
+{}
+{
+  andExpr() (<OR> andExpr())*
+}
+
+void andExpr() #AndExpr:
+{}
+{
+  notExpr() (<AND> notExpr())*
+}
+
+void notExpr() #NotExpr:
+{ Token not = null;}
+{
+  (not = <NOT>)? equalsExpr()
+  {
+    if (not != null) {
+      jjtThis.jjtSetValue(true);
+    }
+  }
+}
+
+void equalsExpr() #EqualsExpr:
+{}
+{
+  compareExpr() (<EQUALS> compareExpr())*
+}
+
+void compareExpr() #CompareExpr:
+{}
+{
+  termExpr() (comparator() termExpr())*
+}
+
+void termExpr() #TermExpr:
+{}
+{
+  factorExpr() (termOperator() factorExpr())*
+}
+
+void factorExpr() #FactorExpr:
+{}
+{
+  negativeExpr() (factorOperator() negativeExpr())*
+}
+
+void negativeExpr() #NegativeExpr:
+{ Token negative = null;}
+{
+  (negative = <MINUS>)? arrowExpr()
+  {
+      if (negative != null) {
+        jjtThis.jjtSetValue(true);
+      }
+    }
+}
+
+void arrowExpr() #ArrowExpr:
+{}
+{
+  valueExpr() (<ARROW> id())*
+}
+
+void valueExpr() #ValueExpr:
+{}
+{
+ <LPAREN> orExpr() <RPAREN>
+| LOOKAHEAD(2) call()
+| id()
+| currentPlayer()
+| literal()
+}
+
+void function() #Function:
+{}
+{
+  actionReturnType() id() <LPAREN> (param() (<COMMA> param())*)? <RPAREN> block()
+| type()             id() <LPAREN> (param() (<COMMA> param())*)? <RPAREN> functionBlock()
+}
+
+void returnStatement() #ReturnStatement:
+{}
+{
+  <RETURN> orExpr() <SEMICOLON>
+}
+
+void block() #Block:
+{}
+{
+  <LBRACE> (statement() | gameStateStatement() | optionStatement())* <RBRACE>
+}
+
+void setupBlock() #SetupBlock:
+{}
+{
+  <LBRACE> (playerCount() | pileDef() | statement() | playerDef())* <RBRACE>
+}
+
+void playerCount() #PlayerCount:
+{}
+{
+  <PLAYER_COUNT> <ASSIGN> rangeLiteral() <SEMICOLON>
+}
+
+void pileDef() #PileDef:
+{}
+{
+  <PILE_DEF> <ASSIGN> numberLiteral() <SEMICOLON>
+}
+
+void playerDef() #PlayerDef:
+{}
+{
+  <PLAYER_DEF> <ASSIGN> <LBRACE> (declarationStatement())* <RBRACE>
+}
+
+void functionBlock() #FunctionBlock:
+{}
+{
+  <LBRACE> (statement())* returnStatement() <RBRACE>
+}
+
+void actionReturnType() #ActionReturnType:
+{}
+{
+  <ACTION>
+}
+
+void pileCall() #PileCall:
+{}
+{
+  <PILE_CALL> <LPAREN> orExpr() <RPAREN>
+}
+
+void playerCall() #PlayerCall:
+{}
+{
+  <PLAYER_CALL> <LPAREN> orExpr() <RPAREN>
+}
+
+void moveCall() #MoveCall:
+{}
+{
+  <MOVE_ACTION> <LPAREN> orExpr() <COMMA> orExpr() <COMMA> orExpr() <RPAREN>
+}
+
+void playCall() #PlayCall:
+{}
+{
+  <PLAY_ACTION> <LPAREN> orExpr() <COMMA> orExpr() <RPAREN>
+}
+
+void dealCall() #DealCall:
+{}
+{
+  <DEAL_ACTION> <LPAREN> orExpr() <COMMA> orExpr() <RPAREN>
+}
+
+void optionStatement() #Option:
+{}
+{
+  (modifier())? <OPTION> <LPAREN> textLiteral() (<COMMA> optionParam())? <RPAREN> (<COLON> orExpr())? block()
+}
+
+void statement() #Statement:
+{}
+{
+  ifStatement()
+| whileLoop()
+| forEachLoop()
+// Lookahead of 2 necessary because of common prefix between assignment and orExpr.
+| LOOKAHEAD(4) assignmentStatement()
+| declarationStatement()
+| expressionStatement()
+}
+
+void assignmentStatement() #AssignmentStatement:
+{}
+{
+  assignment() <SEMICOLON>
+}
+
+void declarationStatement() #DeclarationStatement:
+{}
+{
+  declaration() <SEMICOLON>
+}
+
+void expressionStatement() #ExpressionStatement:
+{}
+{
+  orExpr() <SEMICOLON>
+}
+
+void gameStateStatement() #GameStateStatement:
+{}
+{
+  done() <SEMICOLON>
+| next() <SEMICOLON>
+| out() <SEMICOLON>
+| win() <SEMICOLON>
+| skip() <SEMICOLON>
+}
+
+void done() #DoneState:
+{}
+{
+  <STATE_DONE> <LPAREN> (orExpr())? <RPAREN>
+}
+
+void next() #NextState:
+{}
+{
+  <STATE_NEXT> <LPAREN> <RPAREN>
+}
+
+void out() #OutState:
+{}
+{
+  <STATE_OUT> <LPAREN> (orExpr())? <RPAREN>
+}
+
+void win() #WinState:
+{}
+{
+  <STATE_WIN> <LPAREN> (orExpr())? <RPAREN>
+}
+
+void skip() #SkipState:
+{}
+{
+  <STATE_SKIP> <LPAREN> (orExpr())? <RPAREN>
+}
+
+void declaration() #Declaration:
+{}
+{
+  type() id() (<ASSIGN> orExpr())?
+}
+
+void assignment() #Assignment:
+{}
+{
+  LOOKAHEAD(2) id() <ARROW> id() <ASSIGN> orExpr()
+| currentPlayer() <ARROW> id() <ASSIGN> orExpr()
+|  id() <ASSIGN> orExpr()
+//| call() <ARROW> id() <ASSIGN> orExpr()
+}
+
+void ifStatement() #IfStatement:
+{}
+{
+  <IF> <LPAREN> orExpr() <RPAREN> block() (LOOKAHEAD(2) elseIfStatement())* (elseStatement())?
+}
+
+void elseIfStatement() #ElseIfStatement:
+{}
+{
+  <ELSE> <IF> <LPAREN> orExpr() <RPAREN> block()
+}
+
+void elseStatement() #ElseStatement:
+{}
+{
+  <ELSE> block()
+}
+
+void whileLoop() #WhileLoop:
+{}
+{
+  <WHILE> <LPAREN> orExpr() <RPAREN> block()
+}
+
+void forEachLoop() #ForEachLoop:
+{}
+{
+  <FOREACH> <LPAREN> type() id() <IN> orExpr() <RPAREN> block()
+}
+
+void modifier() #Modifier:
+{}
+{
+  mandatoryModifier() (repeatModifier())?
+| repeatModifier()
+}
+
+void mandatoryModifier() #MandatoryModifier:
+{}
+{
+  <MANDATORY>
+}
+
+void repeatModifier() #RepeatModifier:
+{ Token t; }
+{
+  <LESS_THAN> (t = <NUMBER>) <GREATER_THAN>
+  {
+    jjtThis.jjtSetValue(Integer.parseInt(t.image));
+  }
+}
+
+void comparator() #Comparator:
+{ Token comparator = null; }
+{
+  (comparator = <GREATER_THAN> | comparator = <GREATER_THAN_EQUAL> | comparator = <LESS_THAN> |comparator = <LESS_THAN_EQUAL> | comparator = <CONTAINS>)
+  {
+  jjtThis.jjtSetValue(javacc.util.Operator.fromSymbol(comparator.image));
+}
+}
+
+void termOperator() #TermOperator:
+{ Token operator = null; }
+{
+  (operator = <PLUS> | operator = <MINUS>)
+  {
+    jjtThis.jjtSetValue(javacc.Operator.fromSymbol(operator.image));
+  }
+}
+
+void factorOperator() #FactorOperator:
+{ Token operator = null; }
+{
+  (operator = <MULTIPLY> | operator = <DIVIDE> | operator = <MODULO>)
+  {
+    jjtThis.jjtSetValue(javacc.Operator.fromSymbol(operator.image));
+  }
+}
+
+void currentPlayer() #CurrentPlayer:
+{}
+{
+  <CURRENT_PLAYER>
+}
+
+void id() #Identifier:
+{ Token i; }
+{
+  i = <ID>
+
+  {
+    jjtThis.jjtSetValue(i.image);
+  }
+}
+
+void optionParam() #OptionParameter:
+{}
+{
+  (playerType() | cardType() | suitType() | rankType() | pileType()) id()
+}
+
+void param() #Parameter:
+{}
+{
+  type() id()
+}
+
+
+void type() #Type:
+{}
+{
+  playerType()
+| numberType()
+| cardType()
+| rankType()
+| suitType()
+| sequenceType()
+| pileType()
+| booleanType()
+| textType()
+}
+
+void playerType() #PlayerType:
+{}
+{
+  <PLAYER_TYPE>
+}
+
+void numberType() #NumberType:
+{}
+{
+  <NUMBER_TYPE>
+}
+
+void cardType() #CardType:
+{}
+{
+  <CARD_TYPE>
+}
+
+void rankType() #RankType:
+{}
+{
+  <RANK_TYPE>
+}
+
+void suitType() #SuitType:
+{}
+{
+  <SUIT_TYPE>
+}
+
+void sequenceType() #SequenceType:
+{}
+{
+  <SEQUENCE_TYPE> <LESS_THAN> type() <GREATER_THAN>
+}
+
+void pileType() #PileType:
+{}
+{
+  <PILE_TYPE>
+}
+
+void booleanType() #BooleanType:
+{}
+{
+  <BOOLEAN_TYPE>
+}
+
+void textType() #TextType:
+{}
+{
+  <TEXT_TYPE>
+}
+
+void call() #Call:
+{}
+{
+  id() <LPAREN> (orExpr() (<COMMA> orExpr())*)? <RPAREN>
+| playCall()
+| dealCall()
+| moveCall()
+| playerCall()
+| pileCall()
+}
+
+void literal() #Literal:
+{}
+{
+  // Lookahead of 2 necessary because both cardLiteral and rankLiteral starts with a rank literal.
+  LOOKAHEAD(2) cardLiteral()
+| textLiteral()
+| numberLiteral()
+| suitLiteral()
+| rankLiteral()
+| booleanLiteral()
+| sequenceLiteral()
+}
+
+void textLiteral() #TextLiteral:
+{ Token text; }
+{
+  text = <TEXT>
+  {
+    jjtThis.jjtSetValue(text.image.subSequence(1, text.image.length() -1));
+  }
+}
+
+void rankLiteral() #RankLiteral:
+{ Token rank = null; }
+{
+(rank = <ACE>
+| rank = <TWO>
+| rank = <THREE>
+| rank = <FOUR>
+| rank = <FIVE>
+| rank = <SIX>
+| rank = <SEVEN>
+| rank = <EIGHT>
+| rank = <NINE>
+| rank = <TEN>
+| rank = <JACK>
+| rank = <QUEEN>
+| rank = <KING>)
+  {
+    jjtThis.jjtSetValue(rank.image);
+  }
+}
+
+void cardLiteral() #CardLiteral:
+{}
+{
+  rankLiteral() <OF> suitLiteral()
+}
+
+void booleanLiteral() #BooleanLiteral:
+{Token t;}
+{
+  t = <FALSE> {jjtThis.jjtSetValue(false);}
+| t = <TRUE> {jjtThis.jjtSetValue(true);}
+}
+
+void suitLiteral() #SuitLiteral:
+{ Token t = null; }
+{
+  (t = <SPADES> | t = <CLUBS> | t = <HEARTS> | t = <DIAMONDS>)
+  {
+    jjtThis.jjtSetValue(t.image);
+  }
+}
+
+void sequenceLiteral() #SequenceLiteral:
+{}
+{
+  <LBRACE> (orExpr() (<COMMA> orExpr())*)? <RBRACE>
+}
+
+void rangeLiteral() #RangeLiteral:
+{}
+{
+  numberLiteral() <RANGE> numberLiteral()
+}
+
+void numberLiteral() #NumberLiteral:
+{Token t;}
+{
+  t = <NUMBER>
+  {
+    jjtThis.jjtSetValue(Integer.parseInt(t.image));
+  }
+}

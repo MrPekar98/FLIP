@@ -1,0 +1,84 @@
+Setup {
+  PlayerCount := 2..6;
+  DefinePiles := 2;
+  Number pileSize := 52;
+
+  Boolean firstRound := true;
+  Boolean lastRound := false;
+  Boolean wait := true;
+
+  Player winner := player(0);
+  Player trickWinner := player(0);
+  Card winnerCard := ace of spades;
+
+  DefinePlayer := {
+    Number tricks := 0;
+  }
+}
+
+Stage dealRound to playRound {}
+{
+  dealCard(CurrentPlayer, 7);
+  done();
+}
+
+Stage playRound to playRound
+{
+  if (lastRound) {
+    checkTricks();
+    win(winner);
+  }
+
+  if (firstRound) {
+    firstRound := false;
+  } else {
+    checkTricks();
+  }
+
+  wait := true;
+}{
+  // Make sure the trickWinner starts the round
+  if (wait and not CurrentPlayer = trickWinner) {
+    next();
+  } else {
+    wait := false;
+  }
+
+  mandatory <1> Option ("Play a card", Card c) : CurrentPlayer->hand contains c {
+    play(pile(0), c);
+    dealCard(CurrentPlayer, 1);
+
+    // If the trick is beaten
+    if (c->rank >= winnerCard->rank) {
+      trickWinner := CurrentPlayer;
+      winnerCard := c;
+    }
+    // If no more cards, then this is the last round
+    if (CurrentPlayer->hand->size = 0) {
+      lastRound := true;
+    }
+
+    done();
+  }
+}
+
+Boolean dealCard(Player p, Number n) {
+  Boolean rtn := false;
+  if (pileSize >= n) {
+    deal(p->hand, n);
+    pileSize := pileSize - n;
+    rtn := true;
+  }
+
+  return rtn;
+}
+
+Action checkTricks() {
+  trickWinner->tricks := trickWinner->tricks + 1;
+  move(pile(0), pile(1), pile(0));
+  winnerCard := ace of spades;
+
+  if (trickWinner->tricks > winner->tricks) {
+    winner := trickWinner;
+  }
+}

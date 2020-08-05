@@ -1,0 +1,115 @@
+Setup {
+  PlayerCount := 2..6;
+  DefinePiles := 0;
+  DefinePlayer := { Number points := 0; Pile trickPile; }
+  Number pileSize := 52;
+  Player winner;
+  Number maxTrickCount := 0;
+}
+
+Stage dealStage to stage1
+{}
+{
+  deal(CurrentPlayer->hand, 7);
+  pileSize := pileSize - 7;
+  checkForTrick(CurrentPlayer);
+  done();
+}
+
+Stage stage1 to checkWinner
+{
+
+}
+{
+  mandatory<1> Option("Select a player to ask", Player otherPlayer) : not otherPlayer = CurrentPlayer {
+
+
+    mandatory<1> Option("Select a card to ask for", Card c) : CurrentPlayer->hand contains c {
+      Number wonCards := 0;
+
+      Sequence<Card> moveCards;
+      for (Card otherCard in otherPlayer->hand) {
+        if (otherCard->rank = c->rank) {
+          wonCards := wonCards + 1;
+          moveCards := moveCards + otherCard;
+        }
+      }
+
+      if (wonCards > 0) {
+        move(otherPlayer->hand, CurrentPlayer->hand, moveCards);
+        mandatory<1> Option("You guessed right!") {}
+      } else {
+        // Guessed wrong
+        if (not drawCard(CurrentPlayer->hand, 1)) {
+          mandatory<1> Option("There are no more cards in the deck!") {}
+        } else {
+          mandatory<1> Option("You drew a card from the deck!") {}
+        }
+      }
+
+      checkForTrick(CurrentPlayer);
+      next();
+    }
+  }
+
+  if (not drawCard(CurrentPlayer->hand, 1)) {
+    mandatory<1> Option("There are no more cards in the deck!") {}
+    done(); // This player can never get more cards.
+  }
+
+  mandatory<1> Option("You drew a card from the deck!") {}
+  checkForTrick(CurrentPlayer);
+}
+
+Stage checkWinner to checkWinner
+{
+  win(winner);
+}
+{
+
+}
+
+Boolean drawCard(Pile p, Number count) {
+  Boolean hasDrawn := false;
+  if (pileSize - count >= 0) {
+    pileSize := pileSize - count;
+    deal(p, count);
+    hasDrawn := true;
+  }
+  return hasDrawn;
+}
+
+Action checkForTrick(Player current) {
+  Sequence<Rank> ranks := {ace, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king};
+
+  Number count := 0;
+  Pile hand := current->hand;
+
+  for (Rank rank in ranks) {
+    for (Card c in hand) {
+      if (c->rank = rank) {
+        count := count + 1;
+
+        if (count = 4) {
+          Sequence<Card> moveCards;
+
+          for (Card c in hand) {
+            if (c->rank = rank) {
+              moveCards := moveCards + c;
+            }
+          }
+
+          move(current->hand, current->trickPile, moveCards);
+          current->points := current->points + 1;
+
+          if (current->points > maxTrickCount) {
+              winner := current;
+              maxTrickCount := current->points;
+          }
+        }
+      }
+    }
+
+    count := 0;
+  }
+}
