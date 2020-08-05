@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1f74f5e4-af78-4ee7-8b8b-e443044cf5c2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/card-images.js" beforeDir="false" afterPath="$PROJECT_DIR$/card-images.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/card.js" beforeDir="false" afterPath="$PROJECT_DIR$/card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/underscore-observe.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/underscore-observe.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/underscore.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/underscore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pile.js" beforeDir="false" afterPath="$PROJECT_DIR$/pile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/player.js" beforeDir="false" afterPath="$PROJECT_DIR$/player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rendering.js" beforeDir="false" afterPath="$PROJECT_DIR$/rendering.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/javacc/generated/FlipParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javacc/generated/FlipParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/javacc/visitors/codegeneration/CodeGenerationVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javacc/visitors/codegeneration/CodeGenerationVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/p4-f19.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/Operator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/ActionReturnType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/AndExpr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/ArrowExpr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Assignment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/AssignmentStatement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/BinaryOperator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Block.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/BooleanLiteral.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/BooleanType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Call.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/CardLiteral.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/CardType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Comparator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/CompareExpr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Condition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/ConditionDeclaration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/ConditionExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/CurrentPlayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/DealCall.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Declaration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/DeclarationStatement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/DoneState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/ElseIfStatement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/ElseStatement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/EqualsExpr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Expression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/ExpressionStatement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/FactorExpr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/FactorOperator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/FlipParser$JJCalls.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/FlipParser$LookaheadSuccess.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/FlipParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/FlipParserConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/FlipParserDefaultVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/FlipParserTokenManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/FlipParserTreeConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/FlipParserVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/ForEachLoop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Function.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/FunctionBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/FunctionPredefined.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/FunctionType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/GameStateStatement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Identifier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/IfStatement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/JJTFlipParserState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Literal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/MandatoryModifier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/MinusExpr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Modifier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/MoveCall.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/NegativeExpr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/NextState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/NotExpr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/NumberLiteral.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/NumberType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/OnceModifier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Option.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/OptionParameter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/OrExpr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/OutState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Parameter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/ParseException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/PileCall.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/PileDef.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/PileType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/PlayCall.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/PlayerCall.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/PlayerCount.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/PlayerDef.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/PlayerType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/PlusExpr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Prog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/RangeLiteral.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/RankLiteral.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/RankType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/RepeatModifier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/ReturnStatement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/SequenceLiteral.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/SequenceType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Setup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/SetupBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/SimpleCharStream.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/SimpleNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/SkipState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Stage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/StageBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Statement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Suit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/SuitLiteral.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/SuitType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/TermExpr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/TermOperator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/TextLiteral.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/TextType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Token.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/TokenMgrError.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/Type.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/UnaryOperator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/ValueExpr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/WhileLoop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/WinState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/generated/XorExpr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/CardObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/DefinePlayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/Function$ReturnType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/Function.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/Loop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/ObjectStruct.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/PileObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/Sequence.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/SequenceTypeCheck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/SymbolStructure$SymbolType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/SymbolStructure.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/SymbolTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/Table.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/TableException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/TreePrinter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/Variable$DataType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/Variable$Value.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/util/Variable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/FixExpressionsVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/PrintingVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/TypeCheckerVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/TypeException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/CodeFile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/CodeGenerationVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/JsFunction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/JsStage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/JsVariable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/UndefinedStageExpection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/templates/css/StylesCss.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/templates/html/MainHtml.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/templates/js/CardImagesJs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/templates/js/CardJs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/templates/js/CssFile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/templates/js/GameJs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/templates/js/JsFile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/templates/js/JsModuleFile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/templates/js/MainJs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/templates/js/PileJs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/templates/js/PlayerJs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/templates/js/RenderingJs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/templates/js/UiJs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/templates/js/UnderscoreJs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/templates/js/UnderscoreObserveJs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javacc/visitors/codegeneration/templates/js/UtilsJs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/META-INF/p4-f19.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils.js" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/javacc/flip_logic_javacc.jjt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="786">
+              <caret line="402" column="5" selection-start-line="402" selection-start-column="5" selection-end-line="402" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/javacc/generated/FlipParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="20" column="102" selection-start-line="20" selection-start-column="102" selection-end-line="20" selection-end-column="102" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/javacc/visitors/TypeCheckerVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="13464">
+              <caret line="811" column="46" selection-start-line="811" selection-start-column="46" selection-end-line="811" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/javacc/fisk.flip">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Singleton" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Literal</find>
+      <find>IfS</find>
+      <find>BooleanLi</find>
+      <find>Identifier</find>
+      <find>Declaration</find>
+      <find>SYMBOL_TA</find>
+      <find>ForEachLo</find>
+      <find>it(Decl</find>
+      <find>get</find>
+      <find>if</find>
+      <find>equalsE</find>
+      <find>option</find>
+      <find>Block</find>
+      <find>Option</find>
+      <find>card</find>
+      <find>win</find>
+      <find>player</find>
+      <find>current</find>
+      <find>play</find>
+      <find>move</find>
+      <find>next</find>
+      <find>pile(</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/javacc/visitors/codegeneration/CodeGenerationVisitor.java" />
+        <option value="$PROJECT_DIR$/src/javacc/util/SymbolTable.java" />
+        <option value="$PROJECT_DIR$/src/javacc/visitors/TypeCheckerVisitor.java" />
+        <option value="$PROJECT_DIR$/src/javacc/fisk.flip" />
+        <option value="$PROJECT_DIR$/src/javacc/generated/FlipParser.java" />
+        <option value="$PROJECT_DIR$/src/javacc/asshole" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="294" />
+    <option name="y" value="-30" />
+    <option name="width" value="1614" />
+    <option name="height" value="1032" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="javacc" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="FlipParser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javacc.generated.FlipParser" />
+      <module name="Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javacc.generated.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.FlipParser" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1f74f5e4-af78-4ee7-8b8b-e443044cf5c2" name="Default Changelist" comment="" />
+      <created>1560550551281</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1560550551281</updated>
+      <workItem from="1560550557720" duration="690000" />
+      <workItem from="1560587343492" duration="8305000" />
+      <workItem from="1560684138073" duration="7985000" />
+      <workItem from="1560960821121" duration="740000" />
+      <workItem from="1560961752251" duration="323000" />
+      <workItem from="1561040364417" duration="428000" />
+      <workItem from="1561197545136" duration="83000" />
+      <workItem from="1561197768580" duration="55000" />
+      <workItem from="1561197998459" duration="641000" />
+      <workItem from="1561221592152" duration="796000" />
+      <workItem from="1561376143221" duration="1693000" />
+      <workItem from="1561388245054" duration="923000" />
+      <workItem from="1561547231333" duration="687000" />
+      <workItem from="1561548748313" duration="220000" />
+      <workItem from="1561549043645" duration="184000" />
+      <workItem from="1561549384335" duration="379000" />
+      <workItem from="1561549866711" duration="385000" />
+      <workItem from="1561553827013" duration="30000" />
+      <workItem from="1561555944081" duration="607000" />
+      <workItem from="1561566805729" duration="1921000" />
+      <workItem from="1561570740373" duration="611000" />
+      <workItem from="1561628751861" duration="35000" />
+      <workItem from="1562164447946" duration="3642000" />
+      <workItem from="1562345883311" duration="5634000" />
+      <workItem from="1562351961793" duration="478000" />
+      <workItem from="1562352499008" duration="86000" />
+      <workItem from="1562352767444" duration="310000" />
+      <workItem from="1562353273898" duration="257000" />
+      <workItem from="1562356078118" duration="1884000" />
+      <workItem from="1562462681696" duration="156000" />
+      <workItem from="1562464105749" duration="153000" />
+      <workItem from="1563047949569" duration="59000" />
+      <workItem from="1563570439867" duration="192000" />
+      <workItem from="1563570674950" duration="13000" />
+    </task>
+    <task id="LOCAL-00001" summary="New runnable of compiled JS.">
+      <created>1560591422636</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1560591422636</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Executes compiled target code.">
+      <created>1560591994394</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1560591994394</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Variables in setup but in other scopes are not global.">
+      <created>1560706091319</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1560706091319</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Beautification.">
+      <created>1561221888963</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1561221888963</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Beautification.">
+      <created>1561222361496</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1561222361496</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Removed comment.">
+      <created>1562166126318</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1562166126319</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fixed declaration bug in Option.">
+      <created>1562167695869</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1562167695869</updated>
+    </task>
+    <task id="LOCAL-00008" summary="New asshole game.">
+      <created>1562168031816</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1562168031816</updated>
+    </task>
+    <task id="LOCAL-00009" summary="New asshole game.">
+      <created>1562168165099</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1562168165099</updated>
+    </task>
+    <task id="LOCAL-00010" summary="New asshole game.">
+      <created>1562350399085</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1562350399085</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added missing game features.">
+      <created>1562351327125</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1562351327125</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Cannot move cards from hand to pile.">
+      <created>1562357623272</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1562357623272</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="40585000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1519" height="977" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.294037" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32980132" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32847682" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32980132" />
+      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Flutter Performance" order="13" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Google Cloud Storage" order="5" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Capture Analysis" order="9" />
+      <window_info anchor="right" id="Flutter Inspector" order="10" />
+      <window_info anchor="right" id="Flutter Outline" order="11" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="New runnable of compiled JS." />
+    <MESSAGE value="Executes compiled target code." />
+    <MESSAGE value="Variables in setup but in other scopes are not global." />
+    <MESSAGE value="Beautification." />
+    <MESSAGE value="Removed comment." />
+    <MESSAGE value="Fixed declaration bug in Option." />
+    <MESSAGE value="New asshole game." />
+    <MESSAGE value="Added missing game features." />
+    <MESSAGE value="Cannot move cards from hand to pile." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cannot move cards from hand to pile." />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/javacc/util/SymbolStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="20" lean-forward="true" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacc/util/Variable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-731">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacc/util/Function.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacc/util/Table.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="20" lean-forward="true" selection-start-column="20" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacc/util/SequenceTypeCheck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="32" column="19" lean-forward="true" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="571" column="6" selection-start-line="571" selection-start-column="6" selection-end-line="571" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacc/trickGame.flip">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacc/visitors/codegeneration/CodeGenerationVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="143" column="33" selection-start-line="143" selection-start-column="33" selection-end-line="143" selection-end-column="33" />
+          <folding>
+            <element signature="e#843#1091#0" />
+            <element signature="e#986#1063#1" />
+            <element signature="e#1097#1458#0" />
+            <element signature="e#1467#2330#0" />
+            <element signature="e#1585#2306#1" />
+            <element signature="e#1873#2009#1" />
+            <element signature="e#2015#2300#1" />
+            <element signature="e#2092#2242#1" />
+            <element signature="e#2248#2292#1" />
+            <element signature="e#2336#2836#0" />
+            <element signature="e#2570#2627#1" />
+            <element signature="e#2734#2808#1" />
+            <element signature="e#2842#3085#0" />
+            <element signature="e#3091#3423#0" />
+            <element signature="e#3296#3371#1" />
+            <element signature="e#3429#3762#0" />
+            <element signature="e#3635#3710#1" />
+            <element signature="e#3768#4032#0" />
+            <element signature="e#3908#3936#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacc/visitors/Test.java" />
+    <entry file="file://$PROJECT_DIR$/src/javacc/util/SymbolTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="183" column="5" lean-forward="true" selection-start-line="183" selection-start-column="5" selection-end-line="183" selection-end-column="5" />
+          <folding>
+            <element signature="e#4360#4361#0" expanded="true" />
+            <element signature="e#4406#4407#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacc/generated/SimpleNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="e#1081#1082#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacc/util/CardObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vim.exe.stackdump">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacc/asshole" />
+    <entry file="file://$PROJECT_DIR$/src/javacc/flip_logic_javacc.jjt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="786">
+          <caret line="402" column="5" selection-start-line="402" selection-start-column="5" selection-end-line="402" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacc/generated/FlipParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="20" column="102" selection-start-line="20" selection-start-column="102" selection-end-line="20" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacc/visitors/TypeCheckerVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13464">
+          <caret line="811" column="46" selection-start-line="811" selection-start-column="46" selection-end-line="811" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javacc/fisk.flip">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
