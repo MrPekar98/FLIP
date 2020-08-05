@@ -1,7 +1,0 @@
-Setup
-    int a = 2;
-End Setup
-
-Action playCard
-    a = 3;
-End playCard
