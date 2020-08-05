@@ -1,0 +1,51 @@
+.modal-content {
+  color: #ffffffdd;
+  background-color: #00000055;
+}
+
+.modal-header {
+  border-bottom: 1px solid #ffffff47;
+}
+
+.modal-footer {
+  border-top: 1px solid #ffffff47;
+}
+
+.modal-backdrop {
+  background-color: #ffffff00;
+}
+
+#select {
+  background-color: #bebebe12;
+  color: #ffffffdd;
+}
+
+#select option {
+  background-color: #326e6c;
+}
+
+body {
+  background-color: transparent;
+}
+
+#title h1 {
+  padding-top: 60px;
+  text-align: center;
+  color: #5fdfd98a;
+}
+
+.card-red {
+  color: #ff0000b3;
+}
+
+.card-black {
+  color: #000000b3;
+}
+
+html { 
+  background: url(http://erlectionede.dk/bg.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

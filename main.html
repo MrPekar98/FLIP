@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  <div id="title">
+    <h1>A FLIP game</h1>
+  </div>
+  <div id="ui"></div>
+  <canvas id="bg-canvas" height="540" width="800" style="position: absolute; z-index: 0"></canvas>
+  <canvas id="pile-canvas" height="540" width="800" style="position: absolute; z-index: 1"></canvas>
+  <canvas id="ui-canvas" height="540" width="800" style="position: absolute; z-index: 2"></canvas>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script type="module" src="ui.js"></script>
+  <script type="module" src="game.js"></script>
+  <script type="module" src="player.js"></script>
+  <script type="module" src="card.js"></script>
+  <script type="module" src="card-images.js"></script>
+  <script type="module" src="rendering.js"></script>
+  <script type="module" src="utils.js"></script>
+  <script type="module" src="pile.js"></script>
+  <script type="module" src="main.js"></script>
+  <script type="application/javascript" src="lib/underscore.js"></script>
+  <script type="application/javascript" src="lib/underscore-observe.js"></script>
+</body>
+</html>
