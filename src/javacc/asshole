@@ -1,0 +1,143 @@
+Setup
+{
+  PlayerCount := 2..8;
+  DefinePiles := 1;
+  Player winner;
+}
+
+// Dealing stage.
+Stage dealStage to gameStage
+{}
+{
+    deal(CurrentPlayer->hand, 5);
+    done();
+}
+
+Stage gameStage to gameStage
+{
+    deal(pile(0), 1);
+}
+{
+    if (topCard(pile(0))->rank = ace)
+    {
+        <1> Option("Put ace or be skipped", Card c) : CurrentPlayer->hand contains c and c->rank = ace
+        {
+            move(CurrentPlayer->hand, pile(0), c);
+        }
+
+        next();
+    }
+
+    Boolean mustDraw := checkPass(CurrentPlayer);
+
+    if (mustDraw = true)
+    {
+        deal(CurrentPlayer->hand, 1);
+        next();
+    }
+
+    mustDraw := true;
+
+    <1> Option("Select card to place", Card card) : CurrentPlayer->hand contains card and playableCard(card, topCard(pile(0)))
+    {
+        mustDraw := false;
+
+        if ((topCard(pile(0))->rank = seven or topCard(pile(1)) = king of spades) and (not card = king of spades or not card->rank = seven))
+        {
+            deal(CurrentPlayer->hand, amountGiven(pile(0)));
+        }
+
+        move(CurrentPlayer->hand, pile(0), card);   // Does not move cards to pile.
+    }
+
+    if (mustDraw = true)
+    {
+        deal(CurrentPlayer->hand, 1);
+    }
+
+    else if (isWinner(CurrentPlayer))
+    {
+        winner := CurrentPlayer;
+    }
+}
+
+// Checks if a card can be played onto topCard.
+Boolean playableCard(Card playerCard, Card topCard)
+{
+    Boolean result := false;
+
+    if (playerCard->rank = queen or (playerCard->suit = topCard->suit or playerCard->rank = topCard->rank))
+    {
+        result := true;
+    }
+
+    return result;
+}
+
+// Returns top-of-stack card in pile.
+Card topCard(Pile somePile)
+{
+    Card result;
+
+    for (Card c in somePile)
+    {
+        result := c;
+    }
+
+    return result;
+}
+
+// Checks if a player has won the game.
+Boolean isWinner(Player somePlayer)
+{
+    Boolean result := false;
+
+    if (not topCard(pile(0))->rank = seven and (not topCard(pile(0))->rank = king and not topCard(pile(0))->suit = spades) and somePlayer->hand->size = 0)
+    {
+        result := true;
+    }
+
+    return result;
+}
+
+// Checks if a player must pass the turn.
+Boolean checkPass(Player somePlayer)
+{
+    Boolean played := true;
+
+    for (Card c in somePlayer->hand)
+    {
+        if (playableCard(c, topCard(pile(0))))
+        {
+            played := false;
+        }
+    }
+
+    return played;
+}
+
+// Returns amount of card that must be drawn.
+Number amountGiven(Pile playPile)
+{
+    Number count := 0;
+
+    for (Card c in playPile)
+    {
+        if (c->rank = seven)
+        {
+            count := count + 2;
+        }
+
+        else if (c = king of spades)
+        {
+            count := count + 5;
+        }
+
+        else
+        {
+            count := 0;
+        }
+    }
+
+    return count;
+}
