@@ -1,0 +1,199 @@
+<StartGame> -> <Setup> <Actions> <Events>
+
+<Setup> -> "begin Setup" {(<Declarations> | <MultiStatement>)} "end Setup"
+
+<Actions> -> "begin Actions" <Action> "end Actions"
+       | λ
+
+<Action> -> "begin Action" <Variable>([<Variable>{, <Variable>}]) <MultiStatement> "end Action" <Action>
+      | λ
+
+<Events> -> "begin Events" <Event> "end Events"
+      | λ
+
+<Event> -> "begin Event" eventname ([<Variable>{, <Variable>}]) <MultiStatement> "end Event" <Event>
+     | λ
+		 
+<Declarations> -> <Type> <Variable> = <Expression>
+           | <Type> <Variable> = <BoolExpression>
+           | <Type> <Variable>
+
+<MultiStatement> -> <SingleStatement> <MultiStatement>
+          | <SingleStatement>
+          | λ
+
+<SingleStatement> -> comment
+           | <Variable> = <Expression>
+           | <Variable> = <BoolExpression>
+           | <Expression>
+           | <BoolExpression>
+           | <Variable> = <Call>
+           | <Call>
+           | if <BoolExpression> do <MultiStatement> [elseif <BoolExpression> do <MultiStatement>] [else do <MultiStatement>] endif
+           | while (<BoolExpression>) begin <MultiStatement> end
+
+<Comment> -> [A-Za-z 0-9]
+       | λ
+
+<Type> -> [A-Z_]{[A-Za-z_0-9]}
+
+<Variable> -> [A-Za-z_]{[A-Za-z_0-9]}
+
+<Expression> -> <Value> <Operation> <Expression>
+          | <Value>
+
+<BoolExpression> -> <Expression> <BoolOperation> <Expression>
+
+<Operation> -> +
+         | -
+         | *
+         | /
+         | %
+
+<BoolOperation> -> <
+         | >
+         | ==
+         | !=
+         | <=
+         | >=
+         | ^
+
+<Value> -> [0-9]{[0-9]}
+       | [0-9]{[0-9]}.[0-9]{[0-9]}
+       | <Call>
+       | <Variable>
+
+<Call> -> <Variable>([<Value>{, <Value>}])
+    | <Variable>.<Variable>([<Value>{, <Value>}])
+
+
+_________________________________________________ SEMANTIC ACTIONS ___________________________________________________________________
+
+<StartGame_sg> -> begin Setup <MultiStatement_mstmt> end Setup <Actions_as> <Events_es>
+          sg <- SiblingList(mstmt, as, es)
+
+<Actions_as> -> begin Actions <Action_a> end Actions
+        as -> a
+          | λ
+        as <- MakeNode(null)
+
+<Action_a> -> begin Action <Variable_var1>([<Variable_var2>{, <Variable_var3>}]) <MultiStatement_mstmt> end Action <Action_action>
+          actionvar <- MakeFamily(var, mstmt)
+          a <- SiblingList(actionvar, var2, var3, action)
+        | λ
+          a <- MakeNode(null)
+
+<Events_es> -> begin Events <Event_e> end Events
+           es <- e
+         | λ
+           es <- MakeNode(null)
+
+<Event_event> -> begin <EventName_ename1>([<Variable_var1>{, <Variable_var2>}]) <MultiStatement_mstmt> end <EventName_ename2> <Event_e>
+         eventvar <- MakeFamily(ename2, mstmt)
+         event <- SiblingList(eventvar, var1, var2, ename2, e)
+           | λ
+         event <- MakeNode(null)
+
+<EventName_event> -> KeyUp
+             event <- MakeNode(KeyUp)
+                | KeyDown
+             event <- MakeNode(KeyDown)
+                | KeyRight
+             event <- MakeNode(KeyRight)
+                | KeyLeft
+             event <- MakeNode(KeyLeft)
+                | ...
+
+<MultiStatement_mstmt> -> <SingleStatement_sstmt> <MultiStatement_result>
+              mstmt <- SiblingList(sstmt, result)
+                | <SingleStatement_sstmt>
+              mstmt <- sstmt
+                | λ
+              mstmt <- MakeNode(null)
+
+<SingleStatement_stmt> -> # <Comment_com>
+              stmt <- com
+                | <Type_t> <Variable_var> = <Expression_expr>
+              stmt <- MakeFamily(=, t, val, expr)
+                | <Type_t> <Variable_val> = <BoolExpression_boolexpr>
+              stmt <- MakeFamily(=, t, val, boolexpr)
+                | <Type_t> <Variable_val>
+              stmt <- SiblingList(t, val)
+                | <Variable_val> = <Expression_expr>
+              stmt <- MakeFamily(=, val, expr)
+                | <Variable_var> = <BoolExpression_boolexpr>
+              stmt <- MakeFamily(=, var, boolexpr)
+                | <Expression_expr>
+              stmt <- expr
+                | <BoolExpression_boolexpr>
+              stmt <- boolexpr
+                | <Variable_var> = <Call_c>
+              stmt <- MakeFamily(=, var, c)
+                | <Call_c>
+              stmt <- c
+                | if <BoolExpression_boolexpr1> do <MultiStatement_mstmt1> [elseif <BoolExpression_boolexpr2> do <MultiStatement_mstmt2>] [else do <MultiStatement_mstmt3>] endif
+              elseif <- MakeFamily(else if, boolexpr2, mstmt2)
+              stmt <- MakeFamily(if, boolexpr1, mstmt1, elseif, mstmt3)
+                | while (<BoolExpression>) begin <MultiStatement> end
+
+<Comment_com> -> [A-Za-z 0-9]
+         com <- MakeNode([A-Za-z 0-9])
+           | λ
+         com <- MakeNode(null)
+
+<Type_typevar> -> [A-Z_]{[A-Za-z_0-9]}
+          typevar <- MakeNode([A-Z_]{[A-Za-z_0-9]})
+
+<Variable_var> -> [A-Za-z_]{[A-Za-z_0-9]}
+          var <- MakeNode([A-Za-z_]{[A-Za-z_0-9]})
+
+<Expression_expr> -> <Value_val> <Operation_op> <Expression_exprval>
+             expr <- MakeFamily(op, val, exprVal)
+                | <Value_val>
+             expr <- val
+
+<BoolExpression_boolexpr> -> <Expression_expr1> <BoolOperation_boolop> <Expression_expr2>
+                 boolexpr <- MakeFamily(boolop, expr1, expr2)
+
+<Operation_operationnode> -> +
+                 operationnode <- MakeNode(+)
+                    | -
+                 operationnode <- MakeNode(-)
+                 | *
+                 operationnode <- MakeNode(*)
+                 | /
+                 operationnode(/)
+                 | %
+                 operationnode(%)
+
+<BoolOperation_boolnode> -> <
+                boolnode <- MakeNode(<)
+              | >
+                boolnode <- MakeNode(>)
+              | ==
+                boolnode <- MakeNode(==)
+              | !=
+                boolnode <- MakeNode(!=)
+              | <=
+                boolnode <- MakeNode(<=)
+              | >=
+                boolnode <- MakeNode(>=)
+              | ^
+                boolnode <- MakeNode(^)
+
+<Value_valuenode> -> [0-9]{[0-9]}
+             valuenode <- MakeNode([0-9]{[0-9]})
+              | [0-9]{[0-9]}.[0-9]{[0-9]}
+             valuenode <- MakeNode([0-9]{[0-9]}.[0-9]{[0-9]})
+              | <Call_family>
+                valuenode <- MakeNode(family)
+             | <Variable_var>
+               valuenode <- MakeNode(var)
+
+<Call_leaf> -> <Variable_Var>([<Value_Val1>{, <Value_Val2>}])
+           leaf <- SiblingList(var, val1, val2)
+         | <Variable_var1>.<Variable_var2>([<Value_val1>{, <Value_val2>}])
+           leaf <- SiblingList(var1.var2, val1, val2)
+
+
+_________________________________________________ LEFT DERIVATION ____________________________________________________________________

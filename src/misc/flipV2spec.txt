@@ -1,0 +1,27 @@
+A location is L1... Ln where n is the number of locations,
+or it is
+A player is P1...Pn where n is the number of players
+
+Definitions
+Players = number
+Locations = number
+{1 => 20, 2>5, 3>5, 4>5, 5>5, 6>5, 7>5, 8>5, 9>5, 10>10, 11>10, 12>10, 13>10}
+Global variables
+
+Actions
+play(cardRestriction, location, location)  //Moves a set of cards from location to location
+deal(location, number)                     //Deals number of cards from the deck to location
+win(player)								   //The player wins the game
+done(player)							   //The player is done
+next(player)   							   //ends the players turn (current player if empty)
+
+Conditions
+have(player, cards)                        //Have condition is true if a player or location has the specified
+have(player, suit)                         
+have(player, rank)
+sum(location, comparison, location)        //compares location with location with the operator > = < <= >=
+val(location, comparison, location)
+
+Modifiers
+ONCE           //an option can only be used once
+MANDATORY      //an option has to be used exactly once

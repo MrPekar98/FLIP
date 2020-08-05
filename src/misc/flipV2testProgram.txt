@@ -1,0 +1,31 @@
+Stage 0 {
+	deal(current, 7);
+	done();
+}
+
+Stage 1 {
+	DO(RANK) {
+		have(
+			[RANK of spades, current], 
+			[RANK of hearts, current], 
+			[RANK of clubs, current], 
+			[RANK of diamonds, current]
+		) {
+			play(RANK, current, T0);
+			points(current, 1);
+		}
+	}
+
+	mandatory option(RANK, PLAYER) {
+		have([current, RANK]) {
+			have(PLAYER, RANK) {
+				deal(current, 1);
+				next();
+			} else
+			have(PLAYER, RANK){ play(RANK, PLAYER, current); }
+		}
+	}
+
+	next();
+	done();
+}

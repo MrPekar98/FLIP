@@ -1,0 +1,59 @@
+<Prog> : <Setup> <Actions> <Events>
+
+<Setup> : "begin Setup" {(<Declarations> | <Statements>)} "end Setup"
+
+<Declarations> : <Declaration> {<Declaration>}
+                
+<Declaration> : <Type> id assign <Expression>
+              | <Type> id
+
+<Type> : numbertype | stacktype | cardtype | booleantype
+
+<Value> : id
+        | numliteral
+        | booleanliteral
+		
+/* -------- Does this even work? -------- */
+<Expression> : (<Value> | <Call>) <Operator> <Expression>	
+             | <Call>
+             | <Value> 
+             | "(" <Expression> ")"
+			 
+<BooleanExpression> : (<Value> | <Call>) <BooleanComparator> <BooleanExpression>
+					| (<Value> | <Call>) <LogicalComparator> <BooleanExpression>
+					| <Expression													Problem here. This means BooleanExpression can be a value or a call.
+					| "(" <BooleanExpression> ")"   
+					
+/* -------- Does this even work? -------- */
+             
+<Operator> : plus | minus | divide | multiple | mod
+
+<BooleanComparator> : eq | ne | lt | le | gt | ge 
+
+<LogicalComparator> : not | and | or
+
+<Statements> : <Statement> <Statements>
+             | <Statement>
+
+<Statement> : 'abc'
+
+
+Boolean x = 123 > 122
+
+number a
+number a = 1.24
+number a = 1 + 2
+number a = a() + b(a(2)) + 12
+
+boolean b
+boolean b = true
+boolean b = 1 > 3
+boolean b = 2 == 1
+boolean b = (2 + 1) > ( (1 + 2) * 4) 
+
+
+stack c
+stack c = DEFAULT_PACK_NO_JOKERS
+
+card d
+card d = CARD_D7
