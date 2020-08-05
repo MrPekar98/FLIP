@@ -1,0 +1,41 @@
+comment         \/\*(\*(?!\/)|[^*])*\*\/
+eventname       PileClicked|ButtonClicked
+booleantype     boolean
+cardtype        card
+stacktype       stack
+floattype       float
+inttype         int
+
+intliteral      0|[1-9][0-9]*
+floatliteral    [0-9]+.[0-9]+
+boolanliteral   true|false
+
+assign          =
+plus            +
+minus           -
+divide          /
+multiply        *
+mod             %
+
+eq				eq|==
+ne				ne|!=
+lt				lt|<
+le              le|<=
+gt              gt|>
+ge              ge|>=
+not             NOT|!
+and             AND|&&
+or              OR|\|\|
+
+if              if
+else            else
+while           while
+end             end
+
+action          Action
+setup           Setup
+event           Event
+function        Function
+eventId         KeyDown | PileClicked | CardClicked
+returns         returns
+void            void

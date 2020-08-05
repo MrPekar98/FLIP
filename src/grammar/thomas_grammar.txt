@@ -1,0 +1,71 @@
+<Prog> : <Setup> {<Method>}
+
+<Setup> : setup {<Thing>} end setup
+
+<Method> : <Action> | <Event> | <Function>
+
+<Action> : action id "(" <Params> ")" {<Thing>} end id
+<Event> : event eventId "(" <Params> ")" {<Thing>} end eventId
+<Function> : function id "(" <Params> ")" returns (<Type> | void) {<Thing>} end id
+
+<Thing> : {<Dcl>} | {<Stmt>} | {<Expr0>}
+                
+<Dcl> : <Type> id assign <Expr0>
+      | <Type> id ";"
+
+<Stmt> : <If> | <While> | <Expr0>
+
+  <While> : begin while "(" <Expr0> ")" {<Thing>} end while
+
+  <If> : if "(" <Expr0> ")" {<Thing>} end if
+
+  <Else> : else if "(" <Expr0> ")" {<Thing>} end else
+         | else {<Thing>} end else
+
+<Expr0> : <Expr1> assign <Expr0> ";"
+        | <Expr1> ";"
+
+<Expr1> : <Expr2> or <Expr1>
+        | <Expr2>
+
+<Expr2> : <Expr3> and <Expr2>
+        | <Expr3>
+
+<Expr3> : <Expr4> eq <Expr3>
+        | <Expr4> ne <Expr3>
+        | <Expr4>
+
+<Expr4> : <Expr5> gt <Expr4>
+        | <Expr5> lt <Expr4>
+        | <Expr5> le <Expr4>
+        | <Expr5> ge <Expr4>
+        | <Expr5>
+
+<Expr5> : <Expr6> plus <Expr5>
+        | <Expr6> minus <Expr5>
+        | <Expr6>
+
+<Expr6> : <Expr7> multiply <Expr6>
+        | <Expr7> divide <Expr6>
+        | <Expr7> mod <Expr6>
+        | <Expr7>
+
+<Expr7> : not <Expr7>
+        | <Expr8>
+
+<Expr8> : "(" <Expr0> ")"
+        | id
+        | <Literal>
+        | <Call>
+
+<Literal> : intliteral | booleanliteral | floatliteral
+
+<Call> : id "(" [<Expr0>] {, <Expr0>} ")"
+
+<Params> : <Param> "," <Params>
+         | <Param>
+
+<Param> : <Type> id
+        | empty
+
+<Type> : inttype | floattype | stacktype | cardtype | booleantype

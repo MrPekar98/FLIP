@@ -1,0 +1,122 @@
+<Prog>
+
+<Setup>
+
+<Method>
+
+<Action>
+
+<Event>
+
+<Function>
+
+<Thing>
+
+<Dcl>
+
+<Stmt>
+
+<While>
+
+<If>
+
+<Else>
+
+<Expr0_expr> : <Expr1_ex1> assign <Expr0_ex0> ";"
+	       expr <- MakeFamily(assign, ex1, ex0)
+             | <Expr1_ex1> ";"
+	       expr <- ex1
+
+<Expr1_expr> : <Expr2_ex2> or <Expr1_ex1>
+	       expr <- MakeFamily(or, ex2, ex1)
+             | <Expr2_ex2>
+	       expr <- ex2
+
+<Expr2_expr> : <Expr3_ex3> and <Expr2_ex2>
+	       expr <- MakeFamily(and, ex3, ex2)
+             | <Expr3_ex3>
+	       expr <- ex3
+
+<Expr3_expr> : <Expr4_ex4> eq <Expr3_ex3>
+	       expr <- MakeFamily(eq, ex4, ex3)
+             | <Expr4_ex4> ne <Expr3_ex3>
+	       expr <- MakeFamily(ne, ex4, ex3)
+             | <Expr4_ex4>
+	       expr <- ex4
+
+<Expr4_expr> : <Expr5_ex5> gt <Expr4_ex4>
+	       expr <- MakeFamily(gt, ex5, ex4)
+	     | <Expr5_ex5> lt <Expr4_ex4>
+	       expr <- MakeFamily(lt, ex5, ex4)
+             | <Expr5_ex5> le <Expr4_ex4>
+	       expr <- MakeFamily(le, ex5, ex4)
+             | <Expr5_ex5> ge <Expr4_ex4>
+	       expr <- MakeFamily(ge, ex5, ex4)
+             | <Expr5_ex5>
+	       expr <- ex5
+
+<Expr5_expr> : <Expr6_ex6> plus <Expr5_ex5>
+	       expr <- MakeFamily(plus, ex6, ex5)
+	     | <Expr6_ex6> minus <Expr5_ex5>
+	       expr <- MakeFamily(minus, ex6, ex5)
+             | <Expr6_ex6>
+	       expr <- ex6
+
+<Expr6_expr> : <Expr7_ex7> multiply <Expr6_ex6>
+	       expr <- MakeFamily(multiply, ex7, ex6)
+	     | <Expr7_ex7> divide <Expr6_ex6>
+	       expr <- MakeFamily(divide, ex7, ex6)
+             | <Expr7_ex7> mod <Expr6_ex6>
+	       expr <- MakeFamily(mod, ex7, ex6)
+             | <Expr7_ex7>
+	       expr <- ex7
+
+<Expr7_expr> : not <Expr7_ex7>
+	       expr <- MakeFamily(not, ex7)
+             | <Expr8_ex8>
+	       expr <- ex8
+
+<Expr8_expr> : "(" <Expr1_ex1> ")"
+	       expr <- ex1
+             | id
+	       expr <- MakeNode(id)
+             | intliteral
+	       expr <- MakeNode(intliteral)
+ 	     | booleanliteral 
+	       expr <- MakeNode(booleanliteral)
+ 	     | floatliteral
+	       expr <- MakeNode(floatliteral)
+             | <Call_callnode>
+	       expr <- callnode
+
+<Literal_lit> : intliteral 
+		lit <- MakeNode(intliteral)
+	      | booleanliteral
+		lit <- MakeNode(booleanliteral)
+	      | floatliteral
+		lit <- MakeNode(floatliteral)
+
+<Call_call> : id "(" [<Expr0_ex01>] {, <Expr0_ex02>} ")"
+	      sibs <- MakeSibling(ex01, ex02)
+	      call <- MakeFamily(id, sibs)
+
+<Params_pa> : <Param_pa1> "," <Params_pas>
+	      pa <- MakeSiblings(pa1, pas)
+            | <Param_pa1>
+	      pa <- pa1
+
+<Param_pa> : <Type_t> id
+	     pa <- MakeFamily(ud, t)
+           | empty
+	     pa <- MakeNode(null)
+
+<Type_t> : inttype 
+	   t <- MakeNode(inttype)
+	 | floattype 
+	   t <- MakeNode(floatType)
+	 | stacktype 
+	   t <- MakeNode(stacktype)
+	 | cardtype 
+	   t <- MakeNode(cardtype)
+	 | booleantype
+	   t <- MakeNode(booleantype)
